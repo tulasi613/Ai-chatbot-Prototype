@@ -24,5 +24,4 @@ Step	Component	Main Action
 3. Admin View	Dashboard & Visuals	Displays sales charts, future demand forecasts, and low-stock reorder warnings. 
 4. Live Trigger	Restock Action	Admin updates stock $\rightarrow$ Automated restock alert sent to customer. 
 
-#Saketh procced with task 2
 
