@@ -1,0 +1,65 @@
+Create the 5 Tables
+
+1. products Table
+Stores details for both in-stock and out-of-stock items. 
+SQL
+
+CREATE TABLE products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    brand VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT DEFAULT 0,
+    status ENUM('In Stock', 'Out of Stock') DEFAULT 'In Stock',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+2. suppliers Table
+Stores supplier lead times and historical delivery reliability used by your Python AI model to predict restock dates. 
+SQL
+
+CREATE TABLE suppliers (
+    supplier_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    supplier_name VARCHAR(255) NOT NULL,
+    avg_lead_time_days INT NOT NULL,
+    reliability_score DECIMAL(3, 2) DEFAULT 0.95, -- e.g., 0.92 for 92% confidence
+    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
+);
+3. sales_history Table
+Stores historical product sales velocity used for demand forecasting on your Admin Dashboard. 
+SQL
+
+CREATE TABLE sales_history (
+    sale_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    units_sold INT NOT NULL,
+    sale_date DATE NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
+);
+4. restock_subscriptions Table
+Captures customer alert subscriptions when an item is out of stock (written directly by your AI Chatbot). 
+SQL
+
+CREATE TABLE restock_subscriptions (
+    subscription_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    customer_email VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(20),
+    subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    notification_status ENUM('Pending', 'Notified') DEFAULT 'Pending',
+    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
+);
+5. demand_analytics Table
+Logs customer interactions and chatbot queries for high-demand out-of-stock items, allowing the admin dashboard to show pre-stocking alerts. 
+SQL
+
+CREATE TABLE demand_analytics (
+    analytics_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT,
+    chat_query_count INT DEFAULT 1,
+    predicted_restock_days INT,
+    confidence_score DECIMAL(5, 2),
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
+);
