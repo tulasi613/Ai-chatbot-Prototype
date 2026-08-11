@@ -1,0 +1,28 @@
+Complete Prototype Task Checklist
+Task 1: MySQL Database Setup (Manual / Seed Data)
+	• Products Table: Product ID, Name, Category, Price, Stock Level, Attributes, Image URL. 
+	• Suppliers & Lead Times Table: Average reorder lead times and historical delivery reliability. 
+	• Sales & Interest Log Table: Past sales history, current customer restock subscriptions, and chatbot query counts. 
+	
+Task 2: Customer-Facing AI Chatbot (Python + Chatbot UI)
+	• Predict Availability: When a user asks about an out-of-stock product, the bot queries your Python prediction model (using lead times and stock history) and gives an estimated restock timeframe (e.g., "Expected back in 5–7 days with 92% confidence"). 
+	• Suggest Alternative Recommendations: Uses feature/category matching in MySQL or Python vector similarity to display 2–3 in-stock alternative products with match scores (e.g., 95% Match). 
+	• Customer Subscription Trigger: Captures customer contact info (Email/Phone) directly in the chat to save their restock subscription to MySQL. 
+	• Admin Demand Alert (Your Point): Triggers an alert or updates the Admin Demand Log when high user interest is recorded for an out-of-stock item. 
+	
+Task 3: Admin Data Visualization & Predictive Dashboard (Python)
+	• Current Sales & Stock Intelligence: Charts showing top-selling products, current inventory levels, and stockout frequency using tools like Streamlit, Dash, or Plotly/Matplotlib. 
+	• Proactive Restock Alerts for Admin (Your Point 2): A low-stock / high-demand warning panel predicting which fast-selling items will run out soon based on sales velocity, prompting the admin to reorder before stock hits zero. 
+	• Future Demand & Sales Predictions (Your Point 3): Visualization showing predicted product demand trends based on user search intent, past sales, and active subscriptions. 
+	
+Task 4: (Missing Task) Live Restock Notification Loop
+	• Customer Alert Simulation: In your Admin Panel, include a "Update Stock Level / Restock Item" button. When the admin increases stock for an item, the Python backend checks the subscription database and sends an automated notification (Email via SendGrid/SMTP or a simulated popup) to the customer. 
+Summary Checklist Strategy
+Step	Component	Main Action
+1. Database	MySQL	Seed with 10–15 sample products, sales logs, and supplier lead times. 
+2. Customer View	AI Chatbot	Answers availability queries, recommends alternatives, and saves user subscriptions. 
+3. Admin View	Dashboard & Visuals	Displays sales charts, future demand forecasts, and low-stock reorder warnings. 
+4. Live Trigger	Restock Action	Admin updates stock $\rightarrow$ Automated restock alert sent to customer. 
+
+#Saketh procced with task 2
+
