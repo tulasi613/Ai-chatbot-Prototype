@@ -1,5 +1,7 @@
-Create the 5 Tables
+CREATE DATABASE IF NOT EXISTS bealls_db;
+USE bealls_db;
 
+Create the 5 Tables
 1. products Table
 Stores details for both in-stock and out-of-stock items. 
 SQL
