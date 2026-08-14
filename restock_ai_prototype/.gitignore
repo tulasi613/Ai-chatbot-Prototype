@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+notifications_log.json
+.streamlit/
+*.DS_Store

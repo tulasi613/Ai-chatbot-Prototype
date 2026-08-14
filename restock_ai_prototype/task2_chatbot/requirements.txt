@@ -1,0 +1,7 @@
+# The chatbot runs on the Python standard library alone — you do NOT need to
+# install anything to run the demo (`python3 run.py`).
+#
+# These are optional upgrades, auto-detected at startup:
+
+flask>=3.0                    # nicer server; without it, http.server is used
+mysql-connector-python>=8.0   # required only when DB_ENGINE=mysql

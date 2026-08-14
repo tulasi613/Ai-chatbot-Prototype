@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Restock Assistant — Smart Restock AI</title>
+<link rel="stylesheet" href="/styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">SR</div>
+    <div>
+      <h1>Smart Restock AI</h1>
+      <p>Task 2 — customer-facing availability chatbot</p>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="chip" id="engineChip"><span class="dot"></span><span id="engineText">connecting…</span></div>
+    <button class="btn ghost" id="resetBtn" title="Rebuild the demo data">Reset demo</button>
+  </div>
+</header>
+
+<main class="layout">
+
+  <!-- ============================ CHAT ============================ -->
+  <section class="panel chat-panel">
+    <div class="panel-head">
+      <div>
+        <h2>Restock Assistant</h2>
+        <p class="muted">Ask about any product — availability, alternatives, or a restock alert</p>
+      </div>
+      <span class="badge live"><span class="pulse"></span>online</span>
+    </div>
+
+    <div class="messages" id="messages"></div>
+
+    <div class="quick-replies" id="quickReplies"></div>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <input id="input" type="text" placeholder="e.g. When will the Smart Fitness Watch be back?" />
+      <button class="btn primary" type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M3 20.5v-6l8-2.5-8-2.5v-6l19 8.5-19 8.5Z"/></svg>
+      </button>
+    </form>
+  </section>
+
+  <!-- ======================== LIVE SYSTEM ========================= -->
+  <section class="panel system-panel">
+    <div class="panel-head">
+      <div>
+        <h2>Live system view</h2>
+        <p class="muted">What the chat writes into MySQL, as it happens</p>
+      </div>
+      <span class="badge" id="refreshBadge">auto-refresh</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="stat-value" id="statAlerts">–</span><span class="stat-label">open demand alerts</span></div>
+      <div class="stat"><span class="stat-value" id="statWaiting">–</span><span class="stat-label">customers waiting</span></div>
+      <div class="stat"><span class="stat-value" id="statOos">–</span><span class="stat-label">out-of-stock items</span></div>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-tab="demand">Demand log</button>
+      <button class="tab" data-tab="subs">Subscriptions</button>
+      <button class="tab" data-tab="restock">Restock</button>
+    </div>
+
+    <div class="tab-body">
+      <div class="tab-pane active" id="pane-demand"></div>
+      <div class="tab-pane" id="pane-subs"></div>
+      <div class="tab-pane" id="pane-restock">
+        <p class="muted small">Admin side of the loop: put stock back on the shelf and every
+          subscriber captured in the chat gets notified.</p>
+        <label class="field">
+          <span>Out-of-stock product</span>
+          <select id="restockProduct"></select>
+        </label>
+        <label class="field">
+          <span>New stock level</span>
+          <input id="restockQty" type="number" min="1" value="25" />
+        </label>
+        <button class="btn primary wide" id="restockBtn">Restock &amp; notify subscribers</button>
+        <div id="restockResult"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>

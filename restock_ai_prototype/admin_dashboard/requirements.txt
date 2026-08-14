@@ -1,0 +1,5 @@
+streamlit==1.40.2
+plotly==5.24.1
+pandas==2.2.3
+mysql-connector-python==9.1.0
+python-dotenv==1.0.1
