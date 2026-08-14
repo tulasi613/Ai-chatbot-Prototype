@@ -1,0 +1,6 @@
+
+
+1.cmd /c '"C:\Program Files\MySQL\MySQL Server 26.7\bin\mysql.exe" -u root -p < restock_ai_prototype\database\schema.sql'
+2.cmd /c '"C:\Program Files\MySQL\MySQL Server 26.7\bin\mysql.exe" -u root -p < restock_ai_prototype\database\seed_data.sql'
+3.cd restock_ai_prototype\task2_chatbot
+4.python run.py
