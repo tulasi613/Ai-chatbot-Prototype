@@ -1,53 +1,25 @@
-INSERT INTO restock_subscriptions
-(product_id, customer_email, customer_phone, notification_status)
-VALUES
-(1,'customer01@gmail.com','9876500001','Pending'),
-(2,'customer02@gmail.com','9876500002','Pending'),
-(3,'customer03@gmail.com','9876500003','Notified'),
-(4,'customer04@gmail.com','9876500004','Pending'),
-(5,'customer05@gmail.com','9876500005','Notified'),
-(6,'customer06@gmail.com','9876500006','Pending'),
-(7,'customer07@gmail.com','9876500007','Pending'),
-(8,'customer08@gmail.com','9876500008','Notified'),
-(9,'customer09@gmail.com','9876500009','Pending'),
-(10,'customer10@gmail.com','9876500010','Notified'),
-(11,'customer11@gmail.com','9876500011','Pending'),
-(12,'customer12@gmail.com','9876500012','Notified'),
-(13,'customer13@gmail.com','9876500013','Pending'),
-(14,'customer14@gmail.com','9876500014','Pending'),
-(15,'customer15@gmail.com','9876500015','Notified'),
-(16,'customer16@gmail.com','9876500016','Pending'),
-(17,'customer17@gmail.com','9876500017','Pending'),
-(18,'customer18@gmail.com','9876500018','Notified'),
-(19,'customer19@gmail.com','9876500019','Pending'),
-(20,'customer20@gmail.com','9876500020','Notified'),
-(21,'customer21@gmail.com','9876500021','Pending'),
-(22,'customer22@gmail.com','9876500022','Pending'),
-(23,'customer23@gmail.com','9876500023','Notified'),
-(24,'customer24@gmail.com','9876500024','Pending'),
-(25,'customer25@gmail.com','9876500025','Notified'),
-(26,'customer26@gmail.com','9876500026','Pending'),
-(27,'customer27@gmail.com','9876500027','Pending'),
-(28,'customer28@gmail.com','9876500028','Notified'),
-(29,'customer29@gmail.com','9876500029','Pending'),
-(30,'customer30@gmail.com','9876500030','Notified'),
-(31,'customer31@gmail.com','9876500031','Pending'),
-(32,'customer32@gmail.com','9876500032','Pending'),
-(33,'customer33@gmail.com','9876500033','Notified'),
-(34,'customer34@gmail.com','9876500034','Pending'),
-(35,'customer35@gmail.com','9876500035','Notified'),
-(36,'customer36@gmail.com','9876500036','Pending'),
-(37,'customer37@gmail.com','9876500037','Pending'),
-(38,'customer38@gmail.com','9876500038','Notified'),
-(39,'customer39@gmail.com','9876500039','Pending'),
-(40,'customer40@gmail.com','9876500040','Notified'),
-(41,'customer41@gmail.com','9876500041','Pending'),
-(42,'customer42@gmail.com','9876500042','Notified'),
-(43,'customer43@gmail.com','9876500043','Pending'),
-(44,'customer44@gmail.com','9876500044','Pending'),
-(45,'customer45@gmail.com','9876500045','Notified'),
-(46,'customer46@gmail.com','9876500046','Pending'),
-(47,'customer47@gmail.com','9876500047','Notified'),
-(48,'customer48@gmail.com','9876500048','Pending'),
-(49,'customer49@gmail.com','9876500049','Pending'),
-(50,'customer50@gmail.com','9876500050','Notified');
+# AI-Powered Smart Restock Chatbot Prototype
+
+## Overview
+This repository contains the prototype for an AI-powered conversational chatbot and realtime dashboard designed for smart inventory management. The system provides predictive restock analysis, automated customer alerts, and intelligent product alternatives. 
+
+## Key Features
+* **Customer-Facing AI Chatbot:** A conversational interface allowing users to inquire about product availability.
+* **Restock Predictions:** Machine learning/predictive logic to estimate when out-of-stock items will return.
+* **Smart Subscriptions & Alerts:** Allows customers to subscribe to specific out-of-stock products and receive automated notifications when inventory is updated.
+* **Product Alternatives:** A similarity engine that recommends ranked in-stock alternatives when a user's desired product is unavailable.
+* **Admin Dashboard:** A real-time monitoring interface for inventory management and tracking subscription metrics.
+
+## Repository Structure
+* `/restock_ai_prototype` - Main project directory.
+  * `/task2_chatbot` - Core chatbot application containing the NLP/NLU logic and API routes.
+  * `/backend` - Backend services including the predictor engine and alert notifier.
+  * `/chatbot_ui` - Frontend HTML/CSS/JS for the customer chatbot interface.
+  * `/admin_dashboard` - Codebase for the administrator view.
+  * `/database` - SQL schemas and seed data for inventory and user subscriptions.
+* `/taskupdates` - Documentation regarding database schemas and recent project updates.
+
+## Tech Stack
+* **Backend:** Python (FastAPI/Flask), Machine Learning / NLU modules
+* **Frontend:** HTML5, CSS, vanilla JavaScript
+* **Database:** SQL (MySQL / SQLite)
